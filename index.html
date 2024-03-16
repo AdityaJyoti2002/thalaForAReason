@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="4.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <!-- <link rel="stylesheet" href="./style2.css"> -->
+    <!-- <link rel="stylesheet" href="./1.css"> -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css"
+        integrity="sha384-nU14brUcp6StFntEOOEBvcJm4huWjB0OcIeQ3fltAfSmuZFrkAif0T+UtNGlKKQv" crossorigin="anonymous"> -->
+        <script src="https://kit.fontawesome.com/e5a237baea.js" crossorigin="anonymous"></script>
+    <link rel="" href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>MS Dhoni's Jersey Number</title>
+</head>
+<body>
+    <div class="container">
+
+        <p class="p1" id="mytext">Thala For A Reason</p>
+        <a href="https://www.instagram.com/aditya2002a/"><i class="fa-brands fa-square-instagram logo left" style="color: black;"></i></a>
+        <a href="https://www.youtube.com/channel/UCrEUWlRsSuUBN4ek7yPedzg"><i class="fa-brands fa-youtube logo right" style="color: black;"></i></a>
+        <!-- <a href="">Support Me</a> -->
+        <!-- <p>Enter MS Dhoni's Jersey Number: ex: 1+7, 1+6</p> -->
+        <div class="box2" >
+          
+        
+            <input type="text" id="sumInput">
+         <button class="button" id="Button" onCLick="colorred()">submit</button>
+         <p id="sumResult" class="p3"></p>
+         <audio id="dhoniAudio" src="audio.mp3"></audio>
+         <p class="text" id="mytext1">Made with 💖 by Aditya Jyoti</p>
+         <button class="copypaste" onclick="share()" ><i class="fa-solid fa-share"></i>Share Snippet</button>
+        </div>
+       
+    </div>
+    <script src="./script.js"></script>
+    <script>
+        function share() {
+            let snippet = document.getElementById('sumInput').value.trim();
+            let shareUrl = window.location.origin;
+            if (snippet != '') {
+                shareUrl = window.location.origin + `?s=${btoa(snippet)}`
+            }
+            navigator.clipboard.writeText(shareUrl);
+            Swal.fire({
+                title: "Success!",
+                text: "Share Url has been copied to your clipboard!",
+                showCloseButton: true,
+                focusConfirm: true,
+                confirmButtonText: '<i class="fa fa-thumbs-up"></i> Great!',
+                confirmButtonAriaLabel: 'OK',
+    });
+}
+        function colorred(){
+            // while(true){
+            var userInput = document.getElementById("sumInput").value;
+            var sumResult = document.getElementById("sumResult");
+            var audio = document.getElementById("dhoniAudio")
+            var video = document.getElementById("myVideo")
+            var text = document.getElementById('mytext')
+            var text1 = document.getElementById('mytext1')
+            
+            var button = document.getElementById("Button");
+
+            var match = userInput.match(/^\s*(\d+)\s*\+\s*(\d+)\s*$/);
+
+            if (match){
+                var num1 = parseInt(match[1], 10);
+                var num2 = parseInt(match[2], 10);
+                var sum = num1 + num2;
+
+                // sumResult.textContent = sum;
+                sumResult.textContent = "Result: " + sum;
+
+                if (sum === 7) {
+                    sumResult.style.color = "green";
+                    document.body.style.backgroundImage = "url('2.webp')";
+                    document.body.style.backgroundRepeat = "repeat";
+                    document.body.style.backgroundSize = "100% 100%";
+                    button.style.backgroundColor = "green";
+                    text.style.color = "white";
+                    text1.style.color = "white";
+
+    
+                    audio.pause();
+                    audio.currentTime = 0;
+                    audio.play();
+                    video.addEventListener();
+
+
+                } 
+                else {
+                    sumResult.style.color = "red";
+                    sumResult.style.backgroundImage = "none";
+                } 
+
+                
+            }else if(userInput == 7){
+                    sumResult.style.color = "green";
+                    document.body.style.backgroundImage = "url('2.webp')";
+                    document.body.style.backgroundRepeat = "no-repeat";
+                    document.body.style.backgroundSize = "100% 100%";
+                    button.style.backgroundColor = "green";
+                    text.style.color = "white";
+                    text1.style.color = "white";
+
+    
+                    audio.pause();
+                    audio.currentTime = 0;
+                    audio.play();
+                    video.addEventListener();
+            }else{
+                sumResult.textContent = "Invalid input. Please enter a valid sum.";
+                sumResult.style.color = "red";
+                sumResult.style.backgroundImage = "none";
+                subResult.style.margin = "20px";
+            }        
+
+}
+    </script>
+    
+</body>
+</html>
